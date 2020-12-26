@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sapthaa Records</title>
+	<link rel="stylesheet" href="style/homepage.css">
+	<style>
+		body{
+			background:url(images/loginbg.jpg);
+			background-repeat: no-repeat;
+			background-size: auto;
+		}
+	</style>
+	
+</head>
+
+<body>
+
+
+	<div class="center">
+        <img class="transform hoverimg"  style="width: 200px;" src="images/sapthaagolden.png"/>
+        <br/>
+        <input class="transform upw" type="text" placeholder="Username" />
+        <br/>
+        <input class="transform upw" type="password" placeholder="Password"/>
+        <br/> <br/>
+        <button class="transform lbw" type="submit">Login</button>
+    </div>
+	
+
+    <div class="bottomline">
+        © Sapthaa Records, Kochi, Kerala | 2021 
+    </div>
+	
+
+	<script src="pagestyles/index/jquery-3.2.1.min.js"></script>
+	<script src="pagestyles/index/main.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-database.js"></script>
+
+	<script src="fb/firebaseinit.js"></script>
+
+	<script>
+		msgplace = document.getElementById("loginfailed");
+
+		function onclickbutton(){
+			uname = document.getElementById("username").value;
+			passw = document.getElementById("password").value;
+
+			if(uname=="" || passw==""){
+				return false;
+			}
+
+			if(checkUsername(uname)){
+				if(checkPassword(uname, passw)){
+					showLoginFailMessage("Login succesful!");
+				}
+				else{
+					showLoginFailMessage("Invalid Password for the user " + uname);
+
+				}
+			}
+			else{
+				showLoginFailMessage("Please check your username!");
+			}
+			
+		}
+
+		function checkUsername(uname){
+			usernamesFromFB = [];
+			var node = database.ref("/users/");
+			node.on("value", function(snapshot){
+				snapshot.forEach(function(usernames){
+					usernamesFromFB.push(usernames.key);
+				})
+			}, function(error){
+				console.log("Error : " +error.code);
+			});
+			
+			if(usernamesFromFB.includes(uname))
+				return true;
+
+			return false;
+		}
+
+		function checkPassword(uname, passw){
+			var node = database.ref("/users/"+uname+"/accountdetails/password");
+			node.on("value", function(snapshot){
+				passwFromFB=snapshot.val()
+			});
+			if(passw==passwFromFB)
+				return true;
+			return false;
+		}
+
+		function showLoginFailMessage(msg){
+				
+			$("#loginfailed").hide();
+
+			msgplace.innerHTML = msg;
+			$("#loginfailed").fadeIn();
+
+		}
+
+
+
+
+	</script>
+
+
+
+
+</body>
+</html>

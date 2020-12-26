@@ -1,0 +1,87 @@
+@import "https://fonts.googleapis.com/css?family=Audiowide|Raleway|Roboto";
+
+.transform{
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.transform:hover{
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.hoverimg{
+    transform:scale(1);
+}
+
+.hoverimg:hover{
+    transform:scale(1.12);
+}
+
+.center {
+    width: 500px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
+    margin: auto;
+    background-color: #ffffff11;
+    border-radius: 60px;
+
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.upw{
+    border-radius: 15px;
+    border-width: 0px;
+    width: 250px;
+    padding:18px;
+    margin: 10px;
+    background-color: #ffffffaa;
+    font-size: 15px;
+    font-family: "Raleway", sans-serif;    
+}
+
+.upw:focus {
+    box-shadow: 5px 5px 5px #00000066;
+    background-color: #ffffffdd;
+    outline: none;
+  }
+
+  ::placeholder{
+    color: #333333cc;
+  }
+
+  .lbw{
+    border-radius: 15px;
+    border-width: 0px;
+    width: 150px;
+    padding:18px;
+    background-color: #bba261;
+    font-size: 15px;
+    font-family: "Raleway", sans-serif;
+  }
+
+  .lbw:focus,.lbw:hover{
+        box-shadow: 5px 5px 5px #00000066;
+        background-color: #dcb44a;
+        outline: none;
+  }
+
+
+  .bottomline{
+    color: aliceblue;
+    font-family: Roboto, sans-serif;
+    position: absolute;
+    bottom:20px;
+    left: 50%;
+    color:#CCC;
+    -webkit-transform: translate(-50%, -0);
+    transform: translate(-50%, 0);
+  }
