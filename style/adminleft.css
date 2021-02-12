@@ -1,0 +1,39 @@
+iframe{
+    border-width: 0px;
+}
+
+html, body {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Raleway", sans-serif;
+}
+
+.leftButton{
+    color: #333;
+    margin-bottom:2px;
+    padding:22px;
+    background-color: #EEEEEE;
+}
+
+.leftButton:hover{
+    background-color: #dddddd;
+}
+
+.leftButton:active{
+    background-color: #B39A65;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.fa{
+    width:20px;
+    color: #555555;
+}

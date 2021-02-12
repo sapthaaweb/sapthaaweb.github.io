@@ -1,0 +1,20 @@
+iframe{
+    border-width: 0px;
+}
+
+html, body {
+    overflow:hidden;
+    border: 0px;
+    margin: 0px;
+    padding: 10px;
+    font-family: "Raleway", sans-serif;
+}
+
+.borderDiv{
+    margin:10px;
+    padding:10px;
+    padding-left:20px;
+    border-radius: 20px;
+    background-color: #FFFFFF99;
+    height:90vh;
+}

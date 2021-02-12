@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="stylesheet" href="style/homepage.css">
+        <link rel="stylesheet" href="style/adminleft.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+   
+    <body>
+        <div style="width:100%; height:10vh;">
+            <div style="padding-top:7px; padding-bottom: 1vh; padding-left:7px;">
+                <img style="height: 9vh;" src="images/logo.png"/>
+            </div>
+        </div>
+
+
+
+        <div style="position: absolute; left:0%; width:15%; height:90vh;">
+            <div class="unselectable">
+                <div>
+                    <div class="leftButton unselectable" onclick="goToHome()">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        &nbsp; &nbsp;
+                        Home
+                    </div>
+
+                    <div class="leftButton unselectable" onclick="goToAddUser()">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        &nbsp; &nbsp;
+                        Add User
+                    </div>
+
+                    <div class="leftButton unselectable" onclick="goToAddSuite()">
+                        <i class="fa fa-joomla" aria-hidden="true"></i>
+                        &nbsp; &nbsp;
+                        Add Suite
+                    </div>
+
+                    <div class="leftButton unselectable" onclick="goToViewUsers()">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        &nbsp; &nbsp;
+                        View User
+                    </div>
+
+                    <div class="leftButton unselectable" onclick="goToViewSuites()">
+                        <i class="fa fa-server" aria-hidden="true"></i>
+                        &nbsp; &nbsp;
+                        View Suites
+                    </div>
+
+                    <div class="leftButton unselectable" onclick="signOut()">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        &nbsp; &nbsp;
+                        Logout
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <iframe id="mainContent" style="position: absolute; left:15%; width:85%; height:90vh;" src="adminDashboard.html">
+        </iframe>     
+        
+        <script>
+
+            function goToHome(){
+                document.getElementById("mainContent").src = "adminDashboard.html";
+            }
+
+            function goToAddUser(){
+                document.getElementById("mainContent").src = "adminAddUser.html";
+            }
+
+            function goToAddSuite(){
+                document.getElementById("mainContent").src = "adminAddSuite.html";
+            }
+
+            function goToViewUsers(){
+                document.getElementById("mainContent").src = "adminViewUsers.html";
+            }
+            function goToViewSuites(){
+                document.getElementById("mainContent").src = "adminViewSuites.html";
+            }
+            function signOut(){
+                window.location.href = "homepage.html";
+            }
+
+
+        </script>
+    </body>
+</html>

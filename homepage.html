@@ -19,11 +19,11 @@
 	<div class="center">
         <img class="transform hoverimg"  style="width: 200px;" src="images/sapthaagolden.png"/>
         <br/>
-        <input class="transform upw" type="text" placeholder="Username" />
+        <input class="transform upw" id="username" type="text" placeholder="Username" />
         <br/>
-        <input class="transform upw" type="password" placeholder="Password"/>
+        <input class="transform upw" id="password" type="password" placeholder="Password"/>
         <br/> <br/>
-        <button class="transform lbw" type="submit">Login</button>
+        <button class="transform lbw" onclick="onclickbutton()">Login</button>
     </div>
 	
 
@@ -44,65 +44,27 @@
 		msgplace = document.getElementById("loginfailed");
 
 		function onclickbutton(){
+			
 			uname = document.getElementById("username").value;
 			passw = document.getElementById("password").value;
 
+			console.log(uname + " " + passw);
+
 			if(uname=="" || passw==""){
+				window.alert("Username and Password is Empty");
 				return false;
 			}
 
-			if(checkUsername(uname)){
-				if(checkPassword(uname, passw)){
-					showLoginFailMessage("Login succesful!");
-				}
-				else{
-					showLoginFailMessage("Invalid Password for the user " + uname);
-
-				}
+			else if(uname=="admin" && passw=="Sapthaa@123"){
+				window.location.href = "admin.html";
 			}
+
 			else{
-				showLoginFailMessage("Please check your username!");
+				window.alert("Please check the username & password");
+				return false;
 			}
 			
 		}
-
-		function checkUsername(uname){
-			usernamesFromFB = [];
-			var node = database.ref("/users/");
-			node.on("value", function(snapshot){
-				snapshot.forEach(function(usernames){
-					usernamesFromFB.push(usernames.key);
-				})
-			}, function(error){
-				console.log("Error : " +error.code);
-			});
-			
-			if(usernamesFromFB.includes(uname))
-				return true;
-
-			return false;
-		}
-
-		function checkPassword(uname, passw){
-			var node = database.ref("/users/"+uname+"/accountdetails/password");
-			node.on("value", function(snapshot){
-				passwFromFB=snapshot.val()
-			});
-			if(passw==passwFromFB)
-				return true;
-			return false;
-		}
-
-		function showLoginFailMessage(msg){
-				
-			$("#loginfailed").hide();
-
-			msgplace.innerHTML = msg;
-			$("#loginfailed").fadeIn();
-
-		}
-
-
 
 
 	</script>
